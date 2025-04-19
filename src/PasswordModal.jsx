@@ -8,8 +8,6 @@ import {
 	Input
 } from 'reactstrap';
 
-import ToastAlert from './ToastAlert';
-
 export default function PasswordModal({ passwordModal, setPasswordModal, password, setPassword, setPaymentModalShow, setShowToast }) {
 	const correctPassword= import.meta.env.VITE_MODAL_PASSWORD;
 

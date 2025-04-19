@@ -4,9 +4,8 @@ import {
 	Modal,
 	ModalHeader,
 	ModalBody,
-	ModalFooter,
 	Button,
-	Form, FormGroup, Input, Label
+	Form, FormGroup, Label
 } from 'reactstrap';
 import { apiClient } from '../api';
 
