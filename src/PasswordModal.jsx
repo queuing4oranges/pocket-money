@@ -26,7 +26,7 @@ export default function PasswordModal({ passwordModal, setPasswordModal, passwor
 	return (
 		<>
 			<Modal isOpen={passwordModal} toggle={() => setPasswordModal(!passwordModal)}>
-				<ModalHeader>Enter Password</ModalHeader>
+				<ModalHeader>Brudi, tipp das Passwort</ModalHeader>
 				<ModalBody>
 				<Input
 					type='password'
