@@ -23,7 +23,7 @@ export default function PasswordModal({ passwordModal, setPasswordModal, passwor
 
 	return (
 		<>
-			<Modal isOpen={passwordModal} toggle={() => setPasswordModal(!passwordModal)}>
+			<Modal centered scrollable isOpen={passwordModal} toggle={() => setPasswordModal(!passwordModal)}>
 				<ModalHeader>Brudi, tipp das Passwort</ModalHeader>
 				<ModalBody>
 				<Input
@@ -34,8 +34,8 @@ export default function PasswordModal({ passwordModal, setPasswordModal, passwor
 				/>
 				</ModalBody>
 				<ModalFooter>
-					<Button color='primary' onClick={handlePasswordSubmit}>Submit</Button>
-					<Button color='secondary' onClick={() => setPasswordModal(false)}>Cancel</Button>
+					<Button color='primary' onClick={handlePasswordSubmit}>Los geht's</Button>
+					<Button color='secondary' onClick={() => setPasswordModal(false)}>Schließen</Button>
 				</ModalFooter>
 			</Modal>
 		</>

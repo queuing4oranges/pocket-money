@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { apiClient } from '../api';
 
-export default function PaymentModal({ setPaymentModalShow }) {
+export default function PaymentModal({ setPaymentModalShow, setSuccess }) {
 	const { register, handleSubmit } = useForm();
 
 	const amountField = register('amount');
@@ -26,7 +26,7 @@ export default function PaymentModal({ setPaymentModalShow }) {
 			if(response.status !== 200) {
 				throw new Error(`Something went wrong. Response status: ${response.status}`);
 			}
-
+			setSuccess(true);
 			setPaymentModalShow(false);
 		} catch {
 			console.error('Could not add transaction');
@@ -34,7 +34,7 @@ export default function PaymentModal({ setPaymentModalShow }) {
 	}
 
 	return (
-		<Modal isOpen={true} toggle={() => {}}>
+		<Modal isOpen={true}>
 			<ModalHeader>Neue Transaktion</ModalHeader>
 			<ModalBody>
 				<Form onSubmit={handleSubmit(addTransaction)}>
@@ -46,6 +46,7 @@ export default function PaymentModal({ setPaymentModalShow }) {
 							placeholder='Betrag'
 							id='amount'
 							name='amount'
+							step={0.01}
 							{...amountField}
 						/>
 					</FormGroup>
@@ -59,8 +60,10 @@ export default function PaymentModal({ setPaymentModalShow }) {
 							type='text'
 						/>
 					</FormGroup>
-					<Button type='submit' color='primary'>Bestätigen</Button>
-					<Button onClick={() => setPaymentModalShow(false)} color='secondary'>Cancel</Button>
+					<span className="d-flex justify-content-between">
+						<Button type='submit' color='primary'>Bestätigen</Button>
+						<Button onClick={() => setPaymentModalShow(false)} color='secondary'>Cancel</Button>
+					</span>
 				</Form>
 			</ModalBody>
 		</Modal>

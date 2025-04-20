@@ -8,21 +8,24 @@ import {
 import './pocketmoney.scss';
 import PasswordModal from './PasswordModal';
 import PaymentModal from './PaymentModal';
+import Overview from './Overview';
 import ToastAlert from './ToastAlert';
 import { apiClient } from '../api';
 
 export default function PocketMoney() {
 	const [passwordModal, setPasswordModal] = useState(false);
 	const [paymentModalShow, setPaymentModalShow] = useState(false);
+	const [overviewModal, setOverviewModal] = useState(false);
 	const [password, setPassword] = useState('');
 	const [showToast, setShowToast] = useState(false);
 	const [transactions, setTransactions] = useState([]);
 	const [totalSum, setTotalSum] = useState(0);
+	const [success, setSuccess] = useState(false);
 
 	useEffect(() => {
 		getTransactions();
 	}
-	, [])
+	, [success])
 
 	const getTransactions = async () => {
 		try {
@@ -47,8 +50,8 @@ export default function PocketMoney() {
 	return (
 		<Container fluid className='h-100 w-100 pocket-money-container d-flex flex-column justify-content-center align-items-center'>
 			<Row>
-				<Col className='d-flex justify-content-center align-items-center'>
-					<Card>
+				<Col className='d-flex flex-column justify-content-center align-items-center'>
+					<Card className='p-5'>
 						<CardHeader>
 							<h1>Miquels Budget</h1>
 						</CardHeader>
@@ -58,6 +61,7 @@ export default function PocketMoney() {
 							<Button onClick={() => setPasswordModal(true)} className='my-3' color='info'>Einzahlung/Auszahlung</Button>
 						</CardBody>
 					</Card>
+					<Button className='trans-btn' color='warning' onClick={() => setOverviewModal(true)}>Übersicht Transaktionen</Button>
 					{passwordModal &&
 						<PasswordModal
 							passwordModal={passwordModal}
@@ -73,7 +77,10 @@ export default function PocketMoney() {
 						<ToastAlert setShowToast={setShowToast} />
 					}
 					{paymentModalShow &&
-						<PaymentModal setPaymentModalShow={setPaymentModalShow}/>
+						<PaymentModal setPaymentModalShow={setPaymentModalShow} setSuccess={setSuccess}/>
+					}
+					{overviewModal &&
+						<Overview transactions={transactions} setOverviewModal={setOverviewModal} />
 					}
 				</Col>
 			</Row>
