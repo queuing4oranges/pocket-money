@@ -1,12 +1,25 @@
-# React + Vite
+# 💰 Pocket Money Tracker  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React app to keep track of pocket money.  
+The balance can be updated, and there’s also an **overview of income and expenses**, so it’s easy to see when money was received and where it was spent.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack  
+- [React 19](https://react.dev/) – modern UI library  
+- [Vite](https://vitejs.dev/) – super-fast build & dev server  
+- [React Hook Form](https://react-hook-form.com/) – form handling  
+- [Axios](https://axios-http.com/) – HTTP requests (optional, for saving data)  
+- [Bootstrap 5](https://getbootstrap.com/) – styling & layout  
+- [Reactstrap](https://reactstrap.github.io/) – React components for Bootstrap  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Installation  
+
+Clone the repository and install dependencies:  
+
+```bash
+git clone https://github.com/your-username/miquel-tg.git
+cd miquel-tg
+npm install
